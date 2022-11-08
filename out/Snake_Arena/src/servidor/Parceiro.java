@@ -1,47 +1,48 @@
+package servidor;
+
 import java.io.*;
 import java.net.*;
-import java.util.*;
 import java.util.concurrent.Semaphore;
 
-public class Parceiro{
-    //criando uma conexao, transmissor e receptor
+public class Parceiro
+{
+    //var da conexao, recepção, transmissor
     private Socket conexao;
     private ObjectInputStream receptor;
     private ObjectOutputStream transmissor;
 
-    //criando um comunicado
-    private Comunicado proximoComunicado=null;
+    private servidor.Comunicado proximoComunicado=null;
 
-    //criando um semaforo -> cordenar dados
-    private Semaphore mutEx = new Semaphore(1, true);
+    private Semaphore mutEx = new Semaphore(1, true); //semamforo
 
-    //construtor de parceiro
-    public Parceiro(Socket conexao, ObjectInputStream receptor, ObjectOutputStream transmissor)
+    //construtor
+    public Parceiro(Socket conexao, ObjectInputStream receptor, ObjectOutputStream transmissor) throws Exception
     {
+        //verificando se esta tudo certo
         if(conexao==null)
             throw new Exception("Conexao ausente");
 
         if(receptor==null)
-            throw new Exception("Conexao ausente");
+            throw new Exception("Conexao receptor");
 
         if(transmissor==null)
-            throw new Exception("Conexao ausente");
+            throw new Exception("Conexao transmissor");
 
         this.conexao    =conexao;
         this.transmissor=transmissor;
         this.receptor   =receptor;
     }
 
-    //metodos essenciais(recaba, espie, envie, adeus)
-    public void receba(Comunicado x) throws Exception
+    //metodos obrigatorios(run, espie, envie, adeus)
+    public void receba(servidor.Comunicado x) throws Exception
     {
-        try{
-            this.transmissor.writeObject(x);
-            this.transmissor.flush      ();
-        }
-        catch(IOException erro)
+        try {
+                this.transmissor.writeObject(x);
+                this.transmissor.flush();
+        } 
+        catch (IOException erro) 
         {
-            throw new Exception("Erro de transmissão");
+           throw new Exception("Erro de transmissão");
         }
     }
 
@@ -50,7 +51,7 @@ public class Parceiro{
         try{
             this.mutEx.acquireUninterruptibly();
             if(this.proximoComunicado==null)
-                this.proximoComunicado=(Comunicado)this.receptor.readObject();
+                this.proximoComunicado=(servidor.Comunicado)this.receptor.readObject();
             this.mutEx.release();
             return this.proximoComunicado;
         }
@@ -60,12 +61,11 @@ public class Parceiro{
         }
     }
 
-    public Comunicado envie() throws Exception
+    public servidor.Comunicado envie() throws Exception
     {
-        try
-        {
+        try{
             if(this.proximoComunicado==null)
-                this.proximoComunicado=(Comunicado)this.receptor.readObject();
+                this.proximoComunicado=(servidor.Comunicado)this.receptor.readObject();
             Comunicado ret = this.proximoComunicado;
             this.proximoComunicado=null;
             return ret;
@@ -76,16 +76,16 @@ public class Parceiro{
         }
     }
 
-    public void adeus () throws Exception
+    public void adeus() throws Exception
     {
         try{
             this.transmissor.close();
-            this.receptor.close();
-            this.conexao.close();
+            this.receptor  .close();
+            this.conexao    .close();
         }
         catch(Exception erro)
         {
-            throw new Exception("Erro na desconexão");
+            throw new Exception("Erro de desconexão");
         }
     }
 }

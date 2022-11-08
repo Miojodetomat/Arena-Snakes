@@ -1,3 +1,5 @@
+package servidor;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -5,12 +7,12 @@ import java.util.*;
 public class SupervisoraDeConexao extends Thread
 {
     private double              valor=0;
-    private Parceiro            usuario;
+    private servidor.Parceiro usuario;
     private Socket              conexao;
-    private ArrayList<Parceiro> usuarios;
+    private ArrayList<servidor.Parceiro> usuarios;
 
     public SupervisoraDeConexao
-    (Socket conexao, ArrayList<Parceiro> usuarios)
+    (Socket conexao, ArrayList<servidor.Parceiro> usuarios)
     throws Exception
     {
         if (conexao==null)
@@ -60,7 +62,7 @@ public class SupervisoraDeConexao extends Thread
         try
         {
             this.usuario =
-            new Parceiro (this.conexao,
+            new Parceiro(this.conexao,
                           receptor,
                           transmissor);
         }
