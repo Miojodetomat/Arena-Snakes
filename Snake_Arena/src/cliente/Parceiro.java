@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 
 public class Parceiro{
     //criando uma conexao, transmissor e receptor
-    private Socket conexao.;
+    private Socket conexao;
     private ObjectInputStream receptor;
     private ObjectOutputStream transmissor;
 
@@ -13,7 +13,7 @@ public class Parceiro{
     private Comunicado proximoComunicado=null;
 
     //criando um semaforo -> cordenar dados
-    private Semaphore meuEx = new Semaphore(1, true);
+    private Semaphore mutEx = new Semaphore(1, true);
 
     //construtor de parceiro
     public Parceiro(Socket conexao, ObjectInputStream receptor, ObjectOutputStream transmissor)
@@ -45,10 +45,10 @@ public class Parceiro{
         }
     }
 
-    public void espie() throws Exception
+    public Comunicado espie() throws Exception
     {
         try{
-            this.metEx.acquireUninterruptibly();
+            this.mutEx.acquireUninterruptibly();
             if(this.proximoComunicado==null)
                 this.proximoComunicado=(Comunicado)this.receptor.readObject();
             this.mutEx.release();

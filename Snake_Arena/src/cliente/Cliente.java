@@ -9,7 +9,7 @@ public class Cliente
     public static final int PORTA_PADRAO = 8080;
 
     //declarando a classe executavel
-    public satic void main(String[] args)
+    public static void main(String[] args)
     {
         //verificando se o tamanho do args(dados no vetor)
         if(args.lengh>2)
@@ -87,5 +87,6 @@ public class Cliente
         tratamentoDeComunicadoDeDesligamento.start();
 
         //iniciando o jogo
+        Game newGame = new Game();
     }
 }
