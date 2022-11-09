@@ -1,5 +1,3 @@
-package servidor;
-
 import java.net.*;
 import java.util.*;
 
@@ -7,7 +5,7 @@ public class AceitadoraDeConexao extends Thread
 {
     //declarando o socket e o vetor de usuarios
     private ServerSocket pedido;
-    private ArrayList<servidor.Parceiro> usuarios;
+    private ArrayList<Parceiro> usuarios;
 
     //construtor
     public AceitadoraDeConexao(String porta, ArrayList<Parceiro> usuarios) throws Exception

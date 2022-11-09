@@ -1,5 +1,3 @@
-package servidor;
-
 import cliente.ComunicadoDeDesligamento;
 
 import java.util.*;
@@ -23,7 +21,7 @@ public class Servidor
         if(args.length==1)
             porta=args[0];
 
-        ArrayList<servidor.Parceiro> usuarios = new ArrayList<servidor.Parceiro> ();
+        ArrayList<Parceiro> usuarios = new ArrayList<Parceiro> ();
 
         //tem que ser a mesma porta que o cliente digitou
         AceitadoraDeConexao aceitadoraDeConexao=null
@@ -58,7 +56,7 @@ public class Servidor
 					cliente.ComunicadoDeDesligamento comunicadoDeDesligamento =
                     new cliente.ComunicadoDeDesligamento();
                     
-                    for (servidor.Parceiro usuario:usuarios)
+                    for (Parceiro usuario:usuarios)
                     {
                         try
                         {

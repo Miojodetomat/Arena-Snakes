@@ -1,5 +1,3 @@
-package servidor;
-
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.Semaphore;
@@ -11,7 +9,7 @@ public class Parceiro
     private ObjectInputStream receptor;
     private ObjectOutputStream transmissor;
 
-    private servidor.Comunicado proximoComunicado=null;
+    private Comunicado proximoComunicado=null;
 
     private Semaphore mutEx = new Semaphore(1, true); //semamforo
 
@@ -34,7 +32,7 @@ public class Parceiro
     }
 
     //metodos obrigatorios(run, espie, envie, adeus)
-    public void receba(servidor.Comunicado x) throws Exception
+    public void receba(Comunicado x) throws Exception
     {
         try {
                 this.transmissor.writeObject(x);
@@ -51,7 +49,7 @@ public class Parceiro
         try{
             this.mutEx.acquireUninterruptibly();
             if(this.proximoComunicado==null)
-                this.proximoComunicado=(servidor.Comunicado)this.receptor.readObject();
+                this.proximoComunicado=(Comunicado)this.receptor.readObject();
             this.mutEx.release();
             return this.proximoComunicado;
         }
@@ -61,11 +59,11 @@ public class Parceiro
         }
     }
 
-    public servidor.Comunicado envie() throws Exception
+    public Comunicado envie() throws Exception
     {
         try{
             if(this.proximoComunicado==null)
-                this.proximoComunicado=(servidor.Comunicado)this.receptor.readObject();
+                this.proximoComunicado=(Comunicado)this.receptor.readObject();
             Comunicado ret = this.proximoComunicado;
             this.proximoComunicado=null;
             return ret;

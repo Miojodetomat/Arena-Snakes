@@ -11,23 +11,31 @@ public class Snake {
 	
 	private String move; //NOTHING, UP, DOWN, LEFT, RIGHT
 	
-	public Snake() {
+	public Snake(int x, int y, String pos) {
 		body = new ArrayList<>();
-		
+
 		Rectangle temp = new Rectangle(Game.dimension, Game.dimension);
-		temp.setLocation(Game.width / 2 * Game.dimension, Game.height / 2 * Game.dimension);
+		temp.setLocation(Game.width / x * Game.dimension, Game.height / y * Game.dimension);
 		body.add(temp);
 		
 		temp = new Rectangle(d, d);
-		temp.setLocation((w / 2 - 1) * d, (h / 2) * d);
+		if(pos == "DIREITA")
+			temp.setLocation((w / x + 1) * d, (h / y) * d);
+		else
+			temp.setLocation((w / x - 1) * d, (h / y) * d);
 		body.add(temp);
 		
 		temp = new Rectangle(d, d);
-		temp.setLocation((w / 2 - 2) * d, (h / 2) * d);
+		if(pos == "ESQUERDA")
+			temp.setLocation((w / x - 2) * d, (h / y) * d);
+		else
+			temp.setLocation((w / x + 2) * d, (h / y) * d);
 		body.add(temp);
 		
 		move = "NOTHING";
 	}
+	//do outro lado
+	// Snake cobrinha1 = Snake(3,4, "DIREITA");
 	
 	public void move() {
 		if(move != "NOTHING") {

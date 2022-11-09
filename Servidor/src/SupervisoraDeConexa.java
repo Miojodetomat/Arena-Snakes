@@ -1,5 +1,3 @@
-package servidor;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -7,12 +5,12 @@ import java.util.*;
 public class SupervisoraDeConexao extends Thread
 {
     private double              valor=0;
-    private servidor.Parceiro usuario;
+    private Parceiro usuario;
     private Socket              conexao;
-    private ArrayList<servidor.Parceiro> usuarios;
+    private ArrayList<Parceiro> usuarios;
 
     public SupervisoraDeConexao
-    (Socket conexao, ArrayList<servidor.Parceiro> usuarios)
+    (Socket conexao, ArrayList<Parceiro> usuarios)
     throws Exception
     {
         if (conexao==null)
@@ -83,11 +81,11 @@ public class SupervisoraDeConexao extends Thread
 
                 if (comunicado==null)
                     return;
-                else if (comunicado instanceof PedidoDeOperacao)
+                else if (comunicado instanceof ComunicadoDeMovimento)
                 {
-					PedidoDeOperacao pedidoDeOperacao = (PedidoDeOperacao)comunicado;
+                    ComunicadoDeMovimento comunicadoDeMovimento = (ComunicadoDeMovimento)comunicado;
 					
-					switch (pedidoDeOperacao.getOperacao())
+					switch (comunicadoDeMovimento.getOperacao())
 					{
 						case '+':
 						    this.valor += pedidoDeOperacao.getValor();
@@ -105,10 +103,10 @@ public class SupervisoraDeConexao extends Thread
 						    this.valor /= pedidoDeOperacao.getValor();
                     }
                 }
-                else if (comunicado instanceof PedidoDeResultado)
+                /*else if (comunicado instanceof PedidoDeResultado)
                 {
                     this.usuario.receba (new Resultado (this.valor));
-                }
+                }*/
                 else if (comunicado instanceof PedidoParaSair)
                 {
                     synchronized (this.usuarios)
