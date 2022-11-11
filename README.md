@@ -1,5 +1,5 @@
-<aside position=right><img src=https://universoretro.com.br/wp-content/uploads/2021/03/snake.jpg></aside>
-# Arena-Snakes 🐍👑
+<img src=https://universoretro.com.br/wp-content/uploads/2021/03/snake.jpg align=right height=150px>
+<h1> Arena-Snakes 🐍👑 </h1>
 <div id='Introduction'>
 <h2>Arena Snakes is our third project of second semester in Info course at Campinas Technical High School.</h2>
 </div>
