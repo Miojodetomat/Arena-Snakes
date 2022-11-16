@@ -60,9 +60,9 @@ public class Cliente
             }
 
             //criando o servidor
-            servidor.Parceiro servidor = null;
+            Parceiro servidor = null;
             try {
-                servidor = new servidor.Parceiro(conexao, receptor, transmissor);
+                servidor = new Parceiro(conexao, receptor, transmissor);
             } catch (Exception erro) {
                 System.err.println("Indique o servidor e a porta corretos\n");
                 return;
@@ -80,6 +80,11 @@ public class Cliente
 
             //iniciando o jogo
             Game newGame = new Game();
+
+            for(;;)
+            {
+
+            }
         }
         catch (Exception err)
         {}
