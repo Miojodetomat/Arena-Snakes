@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 
 public class Game 
 implements KeyListener{
-	private Snake player;
+	private Snake playerLulu;
+	private Snake player1;
+	private Snake player2;
 	private Food food;
 	private Graphics graphics;
 
@@ -20,9 +22,11 @@ implements KeyListener{
 	public Game() {
 		window = new JFrame();
 		
-		player = new Snake();
+		playerLulu = new Snake(1, 5, "DIREITA");
+		player1 = new Snake(4, 8, "DIREITA");
+		player2 = new Snake(1, 5, "ESQUERDA");
 		
-		food = new Food(player);
+		food = new Food(playerLulu);
 		
 		graphics = new Graphics(this);
 		
@@ -41,37 +45,37 @@ implements KeyListener{
 	public void update() {
 		if(graphics.state == "RUNNING") {
 			if(check_food_collision()) {
-				player.grow();
-				food.random_spawn(player);
+				playerLulu.grow();
+				food.random_spawn(playerLulu);
 			}
 			else if(check_wall_collision() || check_self_collision()) {
 				graphics.state = "END";
 			}
 			else {
-				player.move();
+				playerLulu.move();
 			}
 		}
 	}
 	
 	private boolean check_wall_collision() {
-		if(player.getX() < 0 || player.getX() >= width * dimension 
-				|| player.getY() < 0|| player.getY() >= height * dimension) {
+		if(playerLulu.getX() < 0 || playerLulu.getX() >= width * dimension
+				|| playerLulu.getY() < 0|| playerLulu.getY() >= height * dimension) {
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean check_food_collision() {
-		if(player.getX() == food.getX() * dimension && player.getY() == food.getY() * dimension) {
+		if(playerLulu.getX() == food.getX() * dimension && playerLulu.getY() == food.getY() * dimension) {
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean check_self_collision() {
-		for(int i = 1; i < player.getBody().size(); i++) {
-			if(player.getX() == player.getBody().get(i).x &&
-					player.getY() == player.getBody().get(i).y) {
+		for(int i = 1; i < playerLulu.getBody().size(); i++) {
+			if(playerLulu.getX() == playerLulu.getBody().get(i).x &&
+					playerLulu.getY() == playerLulu.getBody().get(i).y) {
 				return true;
 			}
 		}
@@ -87,20 +91,20 @@ implements KeyListener{
 		int keyCode = e.getKeyCode();
 		
 		if(graphics.state == "RUNNING") {
-			if(keyCode == KeyEvent.VK_UP && player.getMove() != "DOWN") {
-				player.up();
+			if(keyCode == KeyEvent.VK_UP && playerLulu.getMove() != "DOWN") {
+				playerLulu.up();
 			}
 		
-			if(keyCode == KeyEvent.VK_DOWN && player.getMove() != "UP") {
-				player.down();
+			if(keyCode == KeyEvent.VK_DOWN && playerLulu.getMove() != "UP") {
+				playerLulu.down();
 			}
 		
-			if(keyCode == KeyEvent.VK_LEFT && player.getMove() != "RIGHT") {
-				player.left();
+			if(keyCode == KeyEvent.VK_LEFT && playerLulu.getMove() != "RIGHT") {
+				playerLulu.left();
 			}
 		
-			if(keyCode == KeyEvent.VK_RIGHT && player.getMove() != "LEFT") {
-				player.right();
+			if(keyCode == KeyEvent.VK_RIGHT && playerLulu.getMove() != "LEFT") {
+				playerLulu.right();
 			}
 		}
 		else {
@@ -111,12 +115,12 @@ implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {	}
 
-	public Snake getPlayer() {
-		return player;
+	public Snake getPlayerLulu() {
+		return playerLulu;
 	}
 
-	public void setPlayer(Snake player) {
-		this.player = player;
+	public void setPlayerLulu(Snake playerLulu) {
+		this.playerLulu = playerLulu;
 	}
 
 	public Food getFood() {

@@ -24,7 +24,7 @@ implements ActionListener{
 		state = "START";
 		
 		game = g;
-		s = g.getPlayer();
+		s = g.getPlayerLulu();
 		f = g.getFood();
 		
 		//add a keyListner 
