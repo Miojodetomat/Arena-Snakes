@@ -1,7 +1,5 @@
 package cliente;
 
-import servidor.Comunicado;
-
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.Semaphore;
@@ -13,7 +11,7 @@ public class Parceiro{
     private ObjectOutputStream transmissor;
 
     //criando um comunicado
-    private servidor.Comunicado proximoComunicado=null;
+    private Comunicado proximoComunicado=null;
 
     //criando um semaforo -> cordenar dados
     private Semaphore mutEx = new Semaphore(1, true);
@@ -36,7 +34,7 @@ public class Parceiro{
     }
 
     //metodos essenciais(recaba, espie, envie, adeus)
-    public void receba(servidor.Comunicado x) throws Exception
+    public void receba(Comunicado x) throws Exception
     {
         try{
             this.transmissor.writeObject(x);
@@ -63,12 +61,12 @@ public class Parceiro{
         }
     }
 
-    public servidor.Comunicado envie() throws Exception
+    public Comunicado envie() throws Exception
     {
         try
         {
             if(this.proximoComunicado==null)
-                this.proximoComunicado=(servidor.Comunicado)this.receptor.readObject();
+                this.proximoComunicado=(Comunicado)this.receptor.readObject();
             Comunicado ret = this.proximoComunicado;
             this.proximoComunicado=null;
             return ret;

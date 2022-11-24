@@ -1,9 +1,9 @@
 package cliente;
-import servidor.Parceiro;
+
 
 public class TratamentoDeComunicadoDeDesligamento extends Thread
 {
-    private servidor.Parceiro servidor;
+    private Parceiro servidor;
 
     //construtor
     public TratamentoDeComunicadoDeDesligamento(Parceiro servidor)  throws Exception
@@ -21,7 +21,7 @@ public class TratamentoDeComunicadoDeDesligamento extends Thread
         {
             try
             {
-                if (this.servidor.espie() instanceof servidor.ComunicadoDeDesligamento)
+                if (this.servidor.espie() instanceof ComunicadoDeDesligamento)
                 {
                     System.out.println("\nO servidor vai ser desligado agora");
                     System.err.println("Jogue mais tarde\n");

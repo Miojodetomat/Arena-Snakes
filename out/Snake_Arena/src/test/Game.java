@@ -20,7 +20,7 @@ implements KeyListener{
 	public Game() {
 		window = new JFrame();
 		
-		player = new Snake();
+		player = new Snake(3, 4, "DIREITA");
 		
 		food = new Food(player);
 		
