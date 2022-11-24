@@ -80,6 +80,11 @@ public class Cliente
 
             //iniciando o jogo
             Game newGame = new Game();
+
+            for(;;)
+            {
+
+            }
         }
         catch (Exception err)
         {}
