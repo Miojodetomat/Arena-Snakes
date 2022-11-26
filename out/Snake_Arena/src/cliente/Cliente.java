@@ -1,6 +1,6 @@
 package cliente;
 
-import test.Game;
+import jogo.Game;
 
 import java.net.*;
 import java.io.*;
@@ -78,13 +78,18 @@ public class Cliente
             //iniciando essa classe
             tratamentoDeComunicadoDeDesligamento.start();
 
-            //iniciando o jogo
-            Game newGame = new Game();
+            //inicia a janela do game
+            Game newGame = new Game(servidor);
 
-            for(;;)
-            {
-
+            //criando o tratamento do segundo jogador
+            SupervisoraDePlayer1 supervisoraDoPlayer1 = null;
+            try {
+                supervisoraDoPlayer1 = new SupervisoraDePlayer1(servidor, newGame);
             }
+            catch (Exception erro)
+            {}
+            //iniciar player 1
+            supervisoraDoPlayer1.start();
         }
         catch (Exception err)
         {}

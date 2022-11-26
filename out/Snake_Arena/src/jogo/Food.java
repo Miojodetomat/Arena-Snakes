@@ -1,4 +1,4 @@
-package test;
+package jogo;
 
 import java.awt.Rectangle;
 
@@ -6,11 +6,11 @@ public class Food {
 	private int x;
 	private int y;
 	
-	public Food(Snake player) {
-		this.random_spawn(player);
+	public Food(Snake player, Snake player1) {
+		this.random_spawn(player, player1);
 	}
 	
-	public void random_spawn(Snake player) {
+	public void random_spawn(Snake player, Snake player1) {
 		boolean onSnake = true;
 		while(onSnake) {
 			onSnake = false;
@@ -20,6 +20,11 @@ public class Food {
 			
 			for(Rectangle r : player.getBody()){
 				if(r.x == x && r.y == y) {
+					onSnake = true;
+				}
+			}
+			for(Rectangle r : player1.getBody()){
+				if(r.x == x && r.y == y){
 					onSnake = true;
 				}
 			}

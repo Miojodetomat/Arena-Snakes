@@ -1,17 +1,17 @@
-package test;
+package jogo;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import cliente.*;
 import javax.swing.JFrame;
 
 public class Game 
 implements KeyListener{
 	private Snake playerLulu;
 	private Snake player1;
-	private Snake player2;
 	private Food food;
 	private Graphics graphics;
+	private Parceiro servidor;
 
 	private JFrame window;
 	
@@ -19,14 +19,17 @@ implements KeyListener{
 	public static final int height = 30;
 	public static final int dimension = 20;
 	
-	public Game() {
+	public Game(Parceiro servidor) throws Exception {
 		window = new JFrame();
 
-		playerLulu = new Snake(1, 5, "DIREITA");
-		player1 = new Snake(4, 8, "DIREITA");
-		player2 = new Snake(1, 5, "ESQUERDA");
+		if(servidor == null)
+			throw new Exception("Porta inválida");
+		this.servidor = servidor;
+
+		playerLulu = new Snake(2,4, "DIREITA");
+		player1 = new Snake(2, 2, "ESQUERDA");
 		
-		food = new Food(playerLulu);
+		food = new Food(playerLulu, player1);
 		
 		graphics = new Graphics(this);
 		
@@ -46,13 +49,29 @@ implements KeyListener{
 		if(graphics.state == "RUNNING") {
 			if(check_food_collision()) {
 				playerLulu.grow();
-				food.random_spawn(playerLulu);
+				food.random_spawn(playerLulu, player1);
+				try {
+					servidor.receba(new ComunicadoDeCrescimento(food.getX(), food.getY()));
+				}
+				catch (Exception e)
+				{}
 			}
 			else if(check_wall_collision() || check_self_collision()) {
 				graphics.state = "END";
+				try{
+					servidor.receba(new ComunicadoDeMorte());
+				}
+				catch (Exception e)
+				{}
 			}
 			else {
 				playerLulu.move();
+				try {
+					servidor.receba(new ComunicadoDeMovimento("FRENTE"));
+				}
+				catch (Exception e)
+				{}
+				player1.move();
 			}
 		}
 	}
@@ -93,21 +112,42 @@ implements KeyListener{
 		if(graphics.state == "RUNNING") {
 			if(keyCode == KeyEvent.VK_UP && playerLulu.getMove() != "DOWN") {
 				playerLulu.up();
+				try {
+					servidor.receba(new ComunicadoDeMovimento("CIMA"));
+				}
+				catch (Exception err)
+				{}
 			}
 		
 			if(keyCode == KeyEvent.VK_DOWN && playerLulu.getMove() != "UP") {
 				playerLulu.down();
+				try {
+					servidor.receba(new ComunicadoDeMovimento("BAIXO"));
+				}
+				catch (Exception err)
+				{}
 			}
 		
 			if(keyCode == KeyEvent.VK_LEFT && playerLulu.getMove() != "RIGHT") {
 				playerLulu.left();
+				try {
+					servidor.receba(new ComunicadoDeMovimento("ESQUERDA"));
+				}
+				catch (Exception err)
+				{}
 			}
 		
 			if(keyCode == KeyEvent.VK_RIGHT && playerLulu.getMove() != "LEFT") {
 				playerLulu.right();
+				try {
+					servidor.receba(new ComunicadoDeMovimento("DIREITA"));
+				}
+				catch (Exception err)
+				{}
 			}
 		}
 		else {
+			//mudar maneira de iniciar o jogo
 			this.start();
 		}
 	}
@@ -118,6 +158,8 @@ implements KeyListener{
 	public Snake getPlayerLulu() {
 		return playerLulu;
 	}
+
+	public Snake getPlayer1() { return player1; }
 
 	public void setPlayerLulu(Snake playerLulu) {
 		this.playerLulu = playerLulu;
@@ -138,5 +180,8 @@ implements KeyListener{
 	public void setWindow(JFrame window) {
 		this.window = window;
 	}
-	
+
+	public Graphics getGraphics() {
+		return graphics;
+	}
 }

@@ -1,4 +1,4 @@
-package test;
+package jogo;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -16,6 +16,7 @@ implements ActionListener{
 	public String state;
 	
 	private Snake s;
+	private Snake s1;
 	private Food f;
 	private Game game;
 	
@@ -25,6 +26,7 @@ implements ActionListener{
 		
 		game = g;
 		s = g.getPlayerLulu();
+		s1 = g.getPlayer1();
 		f = g.getFood();
 		
 		//add a keyListner 
@@ -53,10 +55,15 @@ implements ActionListener{
 			for(Rectangle r : s.getBody()) {
 				g2d.fill(r);
 			}
+			g2d.setColor(Color.GREEN);
+			for(Rectangle r : s1.getBody()) {
+				g2d.fill(r);
+			}
 		}
 		else {
 			g2d.setColor(Color.white);
 			g2d.drawString("Your Score: " + (s.getBody().size() - 3), Game.width/2 * Game.dimension - 40, Game.height / 2 * Game.dimension - 20);
+			g2d.drawString("Your enemy score: " + (s1.getBody().size() - 3), Game.width/2 * Game.dimension - 40, (Game.height / 2 + 2) * Game.dimension - 20);
 		}
 	}
 

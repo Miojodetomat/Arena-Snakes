@@ -1,3 +1,4 @@
+package cliente;
 public class ComunicadoDeMovimento extends Comunicado{
     private String movimento;
 

@@ -1,4 +1,4 @@
-package test;
+package jogo;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Snake {
 		body = new ArrayList<>();
 
 		Rectangle temp = new Rectangle(Game.dimension, Game.dimension);
-		temp.setLocation(Game.width / x * Game.dimension, Game.height / y * Game.dimension);
+		temp.setLocation((Game.width / x) * Game.dimension, (Game.height / y) * Game.dimension);
 		body.add(temp);
 		
 		temp = new Rectangle(d, d);
