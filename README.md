@@ -5,6 +5,6 @@
 </div>
 <div id='content'>
 <p><strong>It's about a multiplayer snake game. Where the last snake alive wins the game.</strong></p>
-<p>Our game has a server-client structure which makes possible that at a maximum of 4 players fight against each other
+<p>Our game has a server-client structure which makes possible that a maximum of 4 players fight against each other
 at different computers connected by a server program.</p>
 </div>
