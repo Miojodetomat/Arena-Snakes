@@ -1,14 +1,14 @@
 public class ComunicadoDeMovimento extends Comunicado{
-    private String movimentos = "";
+    private String movimento;
 
-    public ComunicadoDeMovimento(String movimento) throws Exception{
-        if(movimento==null)
+    public ComunicadoDeMovimento(String movimento) throws Exception {
+        if (movimento == null)
             throw new Exception("Movimento inválido");
 
-        this.movimentos = movimento;
+        this.movimento = movimento;
     }
 
-    public String getMovimento(){
-        return this.movimentos;
+    public String getMovimento() {
+        return this.movimento;
     }
 }

@@ -10,8 +10,6 @@ public class SupervisoraDePlayer1 extends Thread{
     {
         if(servidor == null)
             throw new Exception("Porta inválida");
-        if(g == null)
-            throw new Exception("Jogo não está rodando");
 
         this.servidor = servidor;
         this.g = g;
@@ -50,6 +48,7 @@ public class SupervisoraDePlayer1 extends Thread{
                 else
                     if (servidor.espie() instanceof ComunicadoDeMorte)
                 {
+                    servidor.envie();
                     g.getGraphics().state = "END";
                 }
             }

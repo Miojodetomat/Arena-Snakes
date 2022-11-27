@@ -1,11 +1,11 @@
-import cliente.ComunicadoDeDesligamento;
-
+import java.io.BufferedReader;
+import java.io.OutputStream;
 import java.util.*;
 
 public class Servidor
 {
     //declarando uma porta padrao, caso o usuario não informe
-    public static String PORTA_PADRAO = "3000";
+    public static String PORTA_PADRAO = "8080";
 
     //metodo executavel
     public static void main(String[] args)
@@ -52,8 +52,8 @@ public class Servidor
             if (comando.toLowerCase().equals("desativar"))
             {
                 synchronized (usuarios) {
-                    cliente.ComunicadoDeDesligamento comunicadoDeDesligamento =
-                            new cliente.ComunicadoDeDesligamento();
+                    ComunicadoDeDesligamento comunicadoDeDesligamento =
+                            new ComunicadoDeDesligamento();
 
                     for (Parceiro usuario : usuarios) {
                         try {
