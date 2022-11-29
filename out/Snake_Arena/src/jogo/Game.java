@@ -93,8 +93,10 @@ implements KeyListener{
 	
 	private boolean check_self_collision() {
 		for(int i = 1; i < playerLulu.getBody().size(); i++) {
-			if(playerLulu.getX() == playerLulu.getBody().get(i).x &&
-					playerLulu.getY() == playerLulu.getBody().get(i).y) {
+			if((playerLulu.getX() == playerLulu.getBody().get(i).x &&
+					playerLulu.getY() == playerLulu.getBody().get(i).y) ||
+					(player1.getX() == player1.getBody().get(i).x &&
+					player1.getY() == player1.getBody().get(i).y)) {
 				return true;
 			}
 		}
