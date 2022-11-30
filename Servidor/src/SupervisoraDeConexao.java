@@ -48,6 +48,9 @@ public class SupervisoraDeConexao extends Thread{
             synchronized (this.usuarios)
             {
                 this.usuarios.add(this.usuario);
+                if(this.usuarios.size() == 2)
+                    for(Parceiro cliente : usuarios)
+                        cliente.receba(new ComunicadoDeEntradaDeJogador());
             }
 
             for(;;)

@@ -24,6 +24,7 @@ public class SupervisoraDePlayer1 extends Thread{
                 {
                     ComunicadoDeMovimento comunicadoDeMovimento = (ComunicadoDeMovimento) servidor.envie();
                     String move = comunicadoDeMovimento.getMovimento();
+
                     if(move.equals("CIMA")){
                         g.getPlayer1().up();
                     } else

@@ -45,7 +45,7 @@ implements ActionListener{
 		
 		if(state == "START") {
 			g2d.setColor(Color.white);
-			g2d.drawString("Press Any Key", Game.width/2 * Game.dimension - 40, Game.height / 2 * Game.dimension - 20);
+			g2d.drawString("Esperando jogador", Game.width/2 * Game.dimension - 40, Game.height / 2 * Game.dimension - 20);
 		}
 		else if(state == "RUNNING") {
 			g2d.setColor(Color.red);

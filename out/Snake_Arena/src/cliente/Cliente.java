@@ -78,18 +78,21 @@ public class Cliente
             //iniciando essa classe
             tratamentoDeComunicadoDeDesligamento.start();
 
-            SalaDeEspera salaDeEspera = new SalaDeEspera(servidor);
+            //SalaDeEspera salaDeEspera = new SalaDeEspera(servidor);
 
-            for(;;) {
-                if(servidor.espie() instanceof ComunicadoDeDesligamento)
+            //for(;;) {
+                /*if(servidor.espie() instanceof ComunicadoDeDesligamento)
                 {
                     break;
-                }
+                }*/
 
-                if(salaDeEspera.isIniciou()) {
-                    salaDeEspera.setVisible(false);
-                    Game newGame = new Game(servidor);
 
+                    //salaDeEspera.setVisible(false);
+            Game newGame = new Game(servidor);
+
+            for(;;) {
+                if(servidor.envie() instanceof ComunicadoDeEntradaDeJogador) {
+                    newGame.start();
                     //criando o tratamento do segundo jogador
                     SupervisoraDePlayer1 supervisoraDoPlayer1 = null;
                     try {
@@ -100,6 +103,8 @@ public class Cliente
                     supervisoraDoPlayer1.start();
                 }
             }
+                //}
+            //}
         }
         catch (Exception err)
         {}
