@@ -1,5 +1,7 @@
 package cliente;
 
+import Comunicados.ComunicadoDeEntradaDeJogador;
+import Comunicados.Parceiro;
 import jogo.Game;
 
 import java.net.*;
@@ -30,11 +32,15 @@ public class Cliente
                 String host = Cliente.HOST_PADRAO;
                 int porta = Cliente.PORTA_PADRAO;
 
-                if (args.length > 0)
+                if (args.length > 0) {
                     host = args[0];
+                    System.out.println(host);
+                }
 
-                if (args.length == 2)
+                if (args.length == 2) {
                     porta = Integer.parseInt(args[1]); //convetendo a string em int
+                    System.out.println(porta);
+                }
 
                 conexao = new Socket(host, porta);
             } catch (Exception erro) {

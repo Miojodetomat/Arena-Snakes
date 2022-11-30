@@ -1,5 +1,6 @@
-import java.io.BufferedReader;
-import java.io.OutputStream;
+import Comunicados.ComunicadoDeDesligamento;
+import Comunicados.Parceiro;
+
 import java.util.*;
 
 public class Servidor

@@ -1,3 +1,5 @@
+import Comunicados.*;
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
@@ -88,7 +90,6 @@ public class SupervisoraDeConexao extends Thread{
                 receptor.close();
             } catch (Exception falha)
             {}
-            return;
         }
     }
 }

@@ -1,4 +1,4 @@
-package jogo;
+package jogo;//package cliente;
 
 import java.awt.Rectangle;
 

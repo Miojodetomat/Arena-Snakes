@@ -1,6 +1,9 @@
 package cliente;
 
 
+import Comunicados.ComunicadoDeDesligamento;
+import Comunicados.Parceiro;
+
 public class TratamentoDeComunicadoDeDesligamento extends Thread
 {
     private Parceiro servidor;
@@ -25,10 +28,13 @@ public class TratamentoDeComunicadoDeDesligamento extends Thread
                 {
                     System.out.println("\nO servidor vai ser desligado agora");
                     System.err.println("Jogue mais tarde\n");
+                    this.servidor.envie();
                 }
             }
             catch(Exception erro)
-            {}
+            {
+                System.out.println("deu ruim");
+            }
         }
     }
 }

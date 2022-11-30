@@ -1,7 +1,10 @@
 package cliente;
 
-import jogo.*;
-
+import Comunicados.ComunicadoDeCrescimento;
+import Comunicados.ComunicadoDeMorte;
+import Comunicados.ComunicadoDeMovimento;
+import Comunicados.Parceiro;
+import jogo.Game;
 public class SupervisoraDePlayer1 extends Thread{
     private Parceiro servidor;
     private Game g;
