@@ -1,9 +1,6 @@
 package cliente;
 
-<<<<<<< HEAD
-=======
 import Comunicados.Parceiro;
->>>>>>> 37b1193e9d334ec691a42446f911c75b3a59cab0
 import Comunicados.PedidoParaSair;
 
 import javax.swing.*;
