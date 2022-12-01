@@ -1,3 +1,5 @@
+import Comunicados.Parceiro;
+
 import java.net.*;
 import java.util.*;
 

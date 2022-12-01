@@ -1,12 +1,20 @@
-package jogo;
+package jogo;//package cliente;
+
+import Comunicados.ComunicadoDeCrescimento;
+import Comunicados.ComunicadoDeMorte;
+import Comunicados.ComunicadoDeMovimento;
+import Comunicados.Parceiro;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+<<<<<<< HEAD
 
 import Comunicados.ComunicadoDeCrescimento;
 import Comunicados.ComunicadoDeMorte;
 import Comunicados.ComunicadoDeMovimento;
 import cliente.*;
+=======
+>>>>>>> 37b1193e9d334ec691a42446f911c75b3a59cab0
 import javax.swing.JFrame;
 
 public class Game 

@@ -1,4 +1,4 @@
-package cliente;
+package Comunicados;
 
 import Comunicados.Comunicado;
 

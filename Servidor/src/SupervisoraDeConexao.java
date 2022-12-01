@@ -90,7 +90,6 @@ public class SupervisoraDeConexao extends Thread{
                 receptor.close();
             } catch (Exception falha)
             {}
-            return;
         }
     }
 }

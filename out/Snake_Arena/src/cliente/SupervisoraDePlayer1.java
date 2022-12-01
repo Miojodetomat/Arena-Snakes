@@ -3,8 +3,13 @@ package cliente;
 import Comunicados.ComunicadoDeCrescimento;
 import Comunicados.ComunicadoDeMorte;
 import Comunicados.ComunicadoDeMovimento;
+<<<<<<< HEAD
 import jogo.*;
 
+=======
+import Comunicados.Parceiro;
+import jogo.Game;
+>>>>>>> 37b1193e9d334ec691a42446f911c75b3a59cab0
 public class SupervisoraDePlayer1 extends Thread{
     private Parceiro servidor;
     private Game g;

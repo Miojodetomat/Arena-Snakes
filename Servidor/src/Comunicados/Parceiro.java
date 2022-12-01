@@ -1,4 +1,7 @@
+
 import Comunicados.Comunicado;
+package Comunicados;
+
 
 import java.io.*;
 import java.net.*;

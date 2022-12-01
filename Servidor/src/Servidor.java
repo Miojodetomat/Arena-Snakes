@@ -1,4 +1,5 @@
 import Comunicados.ComunicadoDeDesligamento;
+import Comunicados.Parceiro;
 
 import java.util.*;
 
