@@ -1,6 +1,6 @@
 package cliente;
 
-import jogo.Game;
+import Comunicados.PedidoParaSair;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,5 +1,6 @@
 package cliente;
 
+import Comunicados.ComunicadoDeEntradaDeJogador;
 import jogo.Game;
 
 import java.net.*;

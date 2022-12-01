@@ -1,5 +1,5 @@
-import java.io.BufferedReader;
-import java.io.OutputStream;
+import Comunicados.ComunicadoDeDesligamento;
+
 import java.util.*;
 
 public class Servidor
@@ -58,6 +58,7 @@ public class Servidor
                     for (Parceiro usuario : usuarios) {
                         try {
                             usuario.receba(comunicadoDeDesligamento);
+                            System.err.println("recebeu");
                             usuario.adeus();
                         } catch (Exception erro) {
                         }
