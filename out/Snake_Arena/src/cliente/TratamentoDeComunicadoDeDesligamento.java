@@ -29,8 +29,8 @@ public class TratamentoDeComunicadoDeDesligamento extends Thread
                     System.out.println("\nO servidor vai ser desligado agora");
                     System.err.println("Jogue mais tarde\n");
                     this.servidor.envie();
+                    System.exit(0);
                 }
-                System.exit(0);
             }
             catch(Exception erro)
             {

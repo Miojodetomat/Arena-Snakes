@@ -46,8 +46,9 @@ implements KeyListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void start() {
+	public synchronized void  start() {
 		graphics.state = "RUNNING";
+		update();
 	}
 	
 	public void update() {

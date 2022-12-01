@@ -12,7 +12,7 @@ public class Cliente
 {
     //definindo o local e a porta padrao caso o 
     //usuario não informe
-    public static final String HOST_PADRAO = "localhost";
+    public static final String HOST_PADRAO = "177.220.18.96";
     public static final int PORTA_PADRAO = 8080;
 
     //declarando a classe executavel
@@ -97,7 +97,8 @@ public class Cliente
             Game newGame = new Game(servidor);
 
             for(;;) {
-                if(servidor.envie() instanceof ComunicadoDeEntradaDeJogador) {
+                if(servidor.espie() instanceof ComunicadoDeEntradaDeJogador) {
+                    servidor.envie();
                     newGame.start();
                     //criando o tratamento do segundo jogador
                     SupervisoraDePlayer1 supervisoraDoPlayer1 = null;
@@ -113,6 +114,8 @@ public class Cliente
             //}
         }
         catch (Exception err)
-        {}
+        {
+            System.out.println("ta triste");
+        }
     }
 }
