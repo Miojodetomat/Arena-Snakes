@@ -53,7 +53,10 @@ public class SupervisoraDeConexao extends Thread{
                 this.usuarios.add(this.usuario);
                 if(this.usuarios.size() == 2)
                     for(Parceiro cliente : usuarios)
-                        cliente.receba(new ComunicadoDeEntradaDeJogador());
+                        if(cliente != usuario)
+                            cliente.receba(new ComunicadoDeEntradaDeJogador("PlayerLulu"));
+                        else
+                            cliente.receba(new ComunicadoDeEntradaDeJogador("Player1"));
             }
 
             for(;;)

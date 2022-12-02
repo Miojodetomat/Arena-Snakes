@@ -98,8 +98,8 @@ public class Cliente
 
             for(;;) {
                 if(servidor.espie() instanceof ComunicadoDeEntradaDeJogador) {
-                    servidor.envie();
-                    newGame.start();
+                    ComunicadoDeEntradaDeJogador comunicadoDeEntradaDeJogador = (ComunicadoDeEntradaDeJogador) servidor.envie();
+                    newGame.start(comunicadoDeEntradaDeJogador.getEu());
                     //criando o tratamento do segundo jogador
                     SupervisoraDePlayer1 supervisoraDoPlayer1 = null;
                     try {

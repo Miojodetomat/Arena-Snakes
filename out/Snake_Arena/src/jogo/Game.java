@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 
 public class Game 
 implements KeyListener{
+	private Snake eu;
+	private Snake outroPlayer;
 	private Snake playerLulu;
 	private Snake player1;
 	private Food food;
@@ -46,7 +48,16 @@ implements KeyListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public synchronized void  start() {
+	public synchronized void  start(String cobrinha) {
+		if(cobrinha.equals("PlayerLulu")) {
+			eu = playerLulu;
+			outroPlayer = player1;
+		}
+		else {
+			eu = player1;
+			outroPlayer = playerLulu;
+		}
+
 		graphics.state = "RUNNING";
 		update();
 	}
@@ -54,8 +65,8 @@ implements KeyListener{
 	public void update() {
 		if(graphics.state == "RUNNING") {
 			if(check_food_collision()) {
-				playerLulu.grow();
-				food.random_spawn(playerLulu, player1);
+				eu.grow();
+				food.random_spawn(eu, outroPlayer);
 				try {
 					servidor.receba(new ComunicadoDeCrescimento(food.getX(), food.getY()));
 				}
@@ -71,43 +82,43 @@ implements KeyListener{
 				{}
 			}
 			else {
-				playerLulu.move();
+				eu.move();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("FRENTE"));
 				}
 				catch (Exception e)
 				{}
-				player1.move();
+				outroPlayer.move();
 			}
 		}
 	}
 	
 	private boolean check_wall_collision() {
-		if(playerLulu.getX() < 0 || playerLulu.getX() >= width * dimension
-				|| playerLulu.getY() < 0|| playerLulu.getY() >= height * dimension) {
+		if(eu.getX() < 0 || eu.getX() >= width * dimension
+				|| eu.getY() < 0|| eu.getY() >= height * dimension) {
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean check_food_collision() {
-		if(playerLulu.getX() == food.getX() * dimension && playerLulu.getY() == food.getY() * dimension) {
+		if(eu.getX() == food.getX() * dimension && eu.getY() == food.getY() * dimension) {
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean check_self_collision() {
-		for(int i = 1; i < playerLulu.getBody().size(); i++) {
-			if((playerLulu.getX() == playerLulu.getBody().get(i).x &&
-					playerLulu.getY() == playerLulu.getBody().get(i).y)) {
+		for(int i = 1; i < eu.getBody().size(); i++) {
+			if((eu.getX() == eu.getBody().get(i).x &&
+					eu.getY() == eu.getBody().get(i).y)) {
 				return true;
 			}
 		}
-		for(int i = 1; i < player1.getBody().size(); i++)
+		for(int i = 1; i < getPlayer1().getBody().size(); i++)
 		{
-			if((player1.getX() == player1.getBody().get(i).x &&
-					player1.getY() == player1.getBody().get(i).y)) {
+			if((outroPlayer.getX() == outroPlayer.getBody().get(i).x &&
+					outroPlayer.getY() == outroPlayer.getBody().get(i).y)) {
 				return true;
 			}
 		}
@@ -123,8 +134,8 @@ implements KeyListener{
 		int keyCode = e.getKeyCode();
 		
 		if(graphics.state == "RUNNING") {
-			if(keyCode == KeyEvent.VK_UP && playerLulu.getMove() != "DOWN") {
-				playerLulu.up();
+			if(keyCode == KeyEvent.VK_UP && eu.getMove() != "DOWN") {
+				eu.up();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("CIMA"));
 				}
@@ -132,8 +143,8 @@ implements KeyListener{
 				{}
 			}
 		
-			if(keyCode == KeyEvent.VK_DOWN && playerLulu.getMove() != "UP") {
-				playerLulu.down();
+			if(keyCode == KeyEvent.VK_DOWN && eu.getMove() != "UP") {
+				eu.down();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("BAIXO"));
 				}
@@ -141,8 +152,8 @@ implements KeyListener{
 				{}
 			}
 		
-			if(keyCode == KeyEvent.VK_LEFT && playerLulu.getMove() != "RIGHT") {
-				playerLulu.left();
+			if(keyCode == KeyEvent.VK_LEFT && eu.getMove() != "RIGHT") {
+				eu.left();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("ESQUERDA"));
 				}
@@ -150,8 +161,8 @@ implements KeyListener{
 				{}
 			}
 		
-			if(keyCode == KeyEvent.VK_RIGHT && playerLulu.getMove() != "LEFT") {
-				playerLulu.right();
+			if(keyCode == KeyEvent.VK_RIGHT && eu.getMove() != "LEFT") {
+				eu.right();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("DIREITA"));
 				}
@@ -169,10 +180,16 @@ implements KeyListener{
 	public void keyReleased(KeyEvent e) {	}
 
 	public Snake getPlayerLulu() {
-		return playerLulu;
+		return eu;
 	}
 
-	public Snake getPlayer1() { return player1; }
+	public Snake getPlayer1()
+	{
+		if(eu == playerLulu)
+			return player1;
+		else
+			return playerLulu;
+	}
 
 	public void setPlayerLulu(Snake playerLulu) {
 		this.playerLulu = playerLulu;
