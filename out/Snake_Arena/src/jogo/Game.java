@@ -191,6 +191,15 @@ implements KeyListener{
 			return playerLulu;
 	}
 
+	public Snake getCobrinhaInanimadaLulu()
+	{
+		return playerLulu;
+	}
+
+	public Snake getCobrinhaInanimada1() {
+		return player1;
+	}
+
 	public void setPlayerLulu(Snake playerLulu) {
 		this.playerLulu = playerLulu;
 	}

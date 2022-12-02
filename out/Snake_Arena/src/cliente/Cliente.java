@@ -12,7 +12,7 @@ public class Cliente
 {
     //definindo o local e a porta padrao caso o 
     //usuario não informe
-    public static final String HOST_PADRAO = "177.220.18.96";
+    public static final String HOST_PADRAO = "177.220.18.11";
     public static final int PORTA_PADRAO = 8080;
 
     //declarando a classe executavel
