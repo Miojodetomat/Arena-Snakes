@@ -85,6 +85,14 @@ public class SupervisoraDeConexao extends Thread{
                     }
                     this.usuario.adeus();
                 }
+                else if(comunicado instanceof ComunicadoDeNovoJogo)
+                {
+                    synchronized (this.usuarios) {
+                        for (Parceiro cliente : usuarios) {
+                            cliente.receba(comunicado);
+                        }
+                    }
+                }
             }
         }
         catch (Exception erro)

@@ -8,7 +8,10 @@ public class Snake {
 	private int w = Game.width;
 	private int h = Game.height;
 	private int d = Game.dimension;
-	
+	private int x;
+	private int y;
+
+	private String pos;
 	private String move; //NOTHING, UP, DOWN, LEFT, RIGHT
 	
 	public Snake(int x, int y, String pos) {
@@ -31,8 +34,15 @@ public class Snake {
 		else
 			temp.setLocation((w / x + 2) * d, (h / y) * d);
 		body.add(temp);
-		
-		move = "NOTHING";
+
+		if(pos == "DIREITA")
+			move = "LEFT";
+		else
+			move = "RIGHT";
+
+		this.pos = pos;
+		this.x = x;
+		this.y = y;
 	}
 	//do outro lado
 	// Snake cobrinha1 = Snake(3,4, "DIREITA");
@@ -80,6 +90,33 @@ public class Snake {
 		}
 		
 		body.add(0, temp);
+	}
+
+	public void restartSnake() {
+		body = new ArrayList<>();
+
+		Rectangle temp = new Rectangle(Game.dimension, Game.dimension);
+		temp.setLocation((Game.width / x) * Game.dimension, (Game.height / y) * Game.dimension);
+		body.add(temp);
+
+		temp = new Rectangle(d, d);
+		if(pos == "DIREITA")
+			temp.setLocation((w / x + 1) * d, (h / y) * d);
+		else
+			temp.setLocation((w / x - 1) * d, (h / y) * d);
+		body.add(temp);
+
+		temp = new Rectangle(d, d);
+		if(pos == "ESQUERDA")
+			temp.setLocation((w / x - 2) * d, (h / y) * d);
+		else
+			temp.setLocation((w / x + 2) * d, (h / y) * d);
+		body.add(temp);
+
+		if(pos == "DIREITA")
+			move = "LEFT";
+		else
+			move = "RIGHT";
 	}
 
 	public ArrayList<Rectangle> getBody() {

@@ -1,6 +1,7 @@
 package cliente;
 
 import Comunicados.ComunicadoDeEntradaDeJogador;
+import Comunicados.ComunicadoDeNovoJogo;
 import Comunicados.Parceiro;
 import jogo.Game;
 
@@ -108,6 +109,12 @@ public class Cliente
                     }
                     //iniciar player 1
                     supervisoraDoPlayer1.start();
+                }
+                else
+                if(servidor.espie() instanceof ComunicadoDeNovoJogo) {
+                    if(newGame.getGraphics().state == "START")
+                        newGame.restart();
+                    servidor.envie();
                 }
             }
                 //}

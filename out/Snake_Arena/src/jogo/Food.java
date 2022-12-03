@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 public class Food {
 	private int x;
 	private int y;
-	private boolean primeiraVez = true;
 	
 	public Food() {
 		x = Game.width / 2;
@@ -31,6 +30,12 @@ public class Food {
 				}
 			}
 		}
+	}
+
+	public void restartFood()
+	{
+		x = Game.width / 2;
+		y = Game.height / 2;
 	}
 
 	public int getX() {

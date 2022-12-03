@@ -55,6 +55,9 @@ implements ActionListener{
 			for(Rectangle r : s.getBody()) {
 				g2d.fill(r);
 			}
+			g2d.setColor(Color.MAGENTA);
+			g2d.fill(s.getBody().get(0));
+
 			g2d.setColor(Color.GREEN);
 			for(Rectangle r : s1.getBody()) {
 				g2d.fill(r);
@@ -62,9 +65,18 @@ implements ActionListener{
 		}
 		else {
 			g2d.setColor(Color.white);
-			g2d.drawString("Your Score: " + (s.getBody().size() - 3), Game.width/2 * Game.dimension - 40, Game.height / 2 * Game.dimension - 20);
-			g2d.drawString("Your enemy score: " + (s1.getBody().size() - 3), Game.width/2 * Game.dimension - 40, (Game.height / 2 + 2) * Game.dimension - 20);
+			g2d.drawString("Sua pontuação: " + (s.getBody().size() - 3), Game.width/2 * Game.dimension - 40, Game.height / 2 * Game.dimension - 20);
+			g2d.drawString("Pontuação do adversário: " + (s1.getBody().size() - 3), Game.width/2 * Game.dimension - 40, (Game.height / 2 + 2) * Game.dimension - 20);
+			g2d.drawString("Pressione [ESPAÇO] para jogar denovo", Game.width/2 * Game.dimension - 40, (Game.height / 2 + 4) * Game.dimension - 20);
 		}
+	}
+
+	public void setS(Snake s) {
+		this.s = s;
+	}
+
+	public void setS1(Snake s1) {
+		this.s1 = s1;
 	}
 
 	@Override

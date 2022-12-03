@@ -1,12 +1,11 @@
 package jogo;//package cliente;
 
-import Comunicados.ComunicadoDeCrescimento;
-import Comunicados.ComunicadoDeMorte;
-import Comunicados.ComunicadoDeMovimento;
-import Comunicados.Parceiro;
+import Comunicados.*;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
@@ -45,7 +44,7 @@ implements KeyListener{
 		window.setTitle("Snake");
 		window.setSize(width * dimension + 2, height * dimension + dimension + 4);
 		window.setVisible(true);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.addWindowListener(new FechamentoDeJanela());
 	}
 	
 	public synchronized void start(String cobrinha) {
@@ -57,7 +56,8 @@ implements KeyListener{
 			eu = player1;
 			outroPlayer = playerLulu;
 		}
-
+		graphics.setS(eu);
+		graphics.setS1(outroPlayer);
 		graphics.state = "RUNNING";
 		update();
 	}
@@ -73,7 +73,7 @@ implements KeyListener{
 				catch (Exception e)
 				{}
 			}
-			else if(check_wall_collision() || check_self_collision()) {
+			else if(check_wall_collision() || check_self_collision() || check_player_collision()) {
 				graphics.state = "END";
 				try{
 					servidor.receba(new ComunicadoDeMorte());
@@ -81,7 +81,8 @@ implements KeyListener{
 				catch (Exception e)
 				{}
 			}
-			else {
+			else
+			{
 				eu.move();
 				try {
 					servidor.receba(new ComunicadoDeMovimento("FRENTE"));
@@ -115,10 +116,14 @@ implements KeyListener{
 				return true;
 			}
 		}
-		for(int i = 1; i < getPlayer1().getBody().size(); i++)
+		return false;
+	}
+
+	private boolean check_player_collision() {
+		for(int i = 0; i < getPlayer1().getBody().size(); i++)
 		{
-			if((outroPlayer.getX() == outroPlayer.getBody().get(i).x &&
-					outroPlayer.getY() == outroPlayer.getBody().get(i).y)) {
+			if((eu.getX() == outroPlayer.getBody().get(i).x &&
+					eu.getY() == outroPlayer.getBody().get(i).y)) {
 				return true;
 			}
 		}
@@ -170,10 +175,25 @@ implements KeyListener{
 				{}
 			}
 		}
-		//else {
-			//mudar maneira de iniciar o jogo
-			//this.start();
-		//}
+		else if (graphics.state == "END") {
+			if(keyCode == KeyEvent.VK_SPACE)
+			{
+				eu.restartSnake();
+				outroPlayer.restartSnake();
+				food.restartFood();
+				graphics.state = "START";
+				try {
+					servidor.receba(new ComunicadoDeNovoJogo());
+				} catch (Exception err)
+				{}
+			}
+		}
+	}
+
+	public void restart()
+	{
+		graphics.state = "RUNNING";
+		update();
 	}
 
 	@Override
@@ -222,5 +242,18 @@ implements KeyListener{
 
 	public Graphics getGraphics() {
 		return graphics;
+	}
+
+	protected class FechamentoDeJanela extends WindowAdapter{
+		@Override
+		public void windowClosing(WindowEvent e) {
+			try {
+				servidor.receba(new PedidoParaSair());
+				servidor.adeus();
+			}
+			catch (Exception err)
+			{}
+			System.exit(0);
+		}
 	}
 }
