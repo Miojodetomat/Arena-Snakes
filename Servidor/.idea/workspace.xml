@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="98167bc7-88ad-4304-b4dc-5b9129cc45a2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Comunicados/PedidoParaSair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Snake_Arena.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AceitadoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AceitadoraDeConexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comunicado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/Comunicado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComunicadoDeCrescimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/ComunicadoDeCrescimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComunicadoDeDesligamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/ComunicadoDeDesligamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComunicadoDeEntradaDeJogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/ComunicadoDeEntradaDeJogador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComunicadoDeMorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/ComunicadoDeMorte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComunicadoDeMovimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/ComunicadoDeMovimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parceiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comunicados/Parceiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PedidoParaSair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SupervisoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupervisoraDeConexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/Comunicado.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/Comunicado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/ComunicadoDeCrescimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/ComunicadoDeCrescimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/ComunicadoDeDesligamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/ComunicadoDeDesligamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/ComunicadoDeEntradaDeJogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/ComunicadoDeEntradaDeJogador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/ComunicadoDeMorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/ComunicadoDeMorte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/ComunicadoDeMovimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/ComunicadoDeMovimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/Parceiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/Parceiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/PedidoParaSair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/Comunicados/PedidoParaSair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/SalaDeEspera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/SalaDeEspera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/SupervisoraDePlayer1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/SupervisoraDePlayer1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/TratamentoDeComunicadoDeDesligamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/cliente/TratamentoDeComunicadoDeDesligamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Graphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/../out/Snake_Arena/src/jogo/Graphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Arena-Snakes/cliente/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/cliente/TratamentoDeComunicadoDeDesligamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Arena-Snakes/cliente/TratamentoDeComunicadoDeDesligamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/test/Food.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/test/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/test/Graphics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/test/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/Arena-Snakes/test/Snake.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2I6MBA5FSuxYLVl5Fy11cehvwi2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/Cotuca/2022/2_Sem/TP2/Arena-Snakes/Servidor"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="98167bc7-88ad-4304-b4dc-5b9129cc45a2" name="Changes" comment="" />
+      <created>1669497488678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669497488678</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -5,9 +5,11 @@ import java.awt.Rectangle;
 public class Food {
 	private int x;
 	private int y;
+	private boolean primeiraVez = true;
 	
-	public Food(Snake player, Snake player1) {
-		this.random_spawn(player, player1);
+	public Food() {
+		x = Game.width / 2;
+		y = Game.height / 2;
 	}
 	
 	public void random_spawn(Snake player, Snake player1) {

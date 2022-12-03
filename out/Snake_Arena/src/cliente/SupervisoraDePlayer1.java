@@ -41,6 +41,8 @@ public class SupervisoraDePlayer1 extends Thread{
                     if(move.equals("ESQUERDA")){
                         g.getPlayer1().left();
                     }
+                    else
+                        g.getPlayer1().move();
                 }
                 else
                     if (servidor.espie() instanceof ComunicadoDeCrescimento)

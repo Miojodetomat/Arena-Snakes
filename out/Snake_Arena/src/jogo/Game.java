@@ -36,7 +36,7 @@ implements KeyListener{
 		playerLulu = new Snake(2,4, "DIREITA");
 		player1 = new Snake(2, 2, "ESQUERDA");
 		
-		food = new Food(playerLulu, player1);
+		food = new Food();
 		
 		graphics = new Graphics(this);
 		
@@ -48,7 +48,7 @@ implements KeyListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public synchronized void  start(String cobrinha) {
+	public synchronized void start(String cobrinha) {
 		if(cobrinha.equals("PlayerLulu")) {
 			eu = playerLulu;
 			outroPlayer = player1;
@@ -88,7 +88,7 @@ implements KeyListener{
 				}
 				catch (Exception e)
 				{}
-				outroPlayer.move();
+				//outroPlayer.move();
 			}
 		}
 	}
