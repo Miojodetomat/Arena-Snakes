@@ -56,6 +56,7 @@ public class SupervisoraDePlayer1 extends Thread{
                     if (servidor.espie() instanceof ComunicadoDeMorte)
                 {
                     servidor.envie();
+                    g.getGraphics().setWhoDied("OUTRO");
                     g.getGraphics().state = "END";
                 }
             }
