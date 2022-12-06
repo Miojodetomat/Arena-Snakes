@@ -8,7 +8,7 @@ public class Food {
 	
 	public Food() {
 		x = Game.width / 2;
-		y = Game.height / 2;
+		y = Game.height / 2 - 4;
 	}
 	
 	public void random_spawn(Snake player, Snake player1) {
@@ -35,7 +35,7 @@ public class Food {
 	public void restartFood()
 	{
 		x = Game.width / 2;
-		y = Game.height / 2;
+		y = Game.height / 2 - 4;
 	}
 
 	public int getX() {

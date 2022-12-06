@@ -33,9 +33,7 @@ public class TratamentoDeComunicadoDeDesligamento extends Thread
                 }
             }
             catch(Exception erro)
-            {
-                System.out.println("deu ruim");
-            }
+            {}
         }
     }
 }

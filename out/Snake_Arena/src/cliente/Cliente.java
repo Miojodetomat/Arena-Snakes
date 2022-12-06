@@ -13,7 +13,7 @@ public class Cliente
 {
     //definindo o local e a porta padrao caso o 
     //usuario não informe
-    public static final String HOST_PADRAO = "177.220.18.11";
+    public static final String HOST_PADRAO = "177.220.18.104";
     public static final int PORTA_PADRAO = 8080;
 
     //declarando a classe executavel
@@ -97,8 +97,11 @@ public class Cliente
                     //salaDeEspera.setVisible(false);
             Game newGame = new Game(servidor);
 
+            int i = 0;
+
             for(;;) {
                 if(servidor.espie() instanceof ComunicadoDeEntradaDeJogador) {
+                    i = 0;
                     ComunicadoDeEntradaDeJogador comunicadoDeEntradaDeJogador = (ComunicadoDeEntradaDeJogador) servidor.envie();
                     newGame.start(comunicadoDeEntradaDeJogador.getEu());
                     //criando o tratamento do segundo jogador
@@ -112,8 +115,11 @@ public class Cliente
                 }
                 else
                 if(servidor.espie() instanceof ComunicadoDeNovoJogo) {
-                    if(newGame.getGraphics().state == "START")
-                        newGame.restart();
+                    i++;
+                    if(i % 2 == 0) {
+                        if (newGame.getGraphics().state == "START")
+                            newGame.restart();
+                    }
                     servidor.envie();
                 }
             }
@@ -121,8 +127,6 @@ public class Cliente
             //}
         }
         catch (Exception err)
-        {
-            System.out.println("ta triste");
-        }
+        {}
     }
 }

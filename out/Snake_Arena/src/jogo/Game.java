@@ -74,6 +74,7 @@ implements KeyListener{
 				{}
 			}
 			else if(check_wall_collision() || check_self_collision() || check_player_collision()) {
+				graphics.setWhoDied("VOCE");
 				graphics.state = "END";
 				try{
 					servidor.receba(new ComunicadoDeMorte());
