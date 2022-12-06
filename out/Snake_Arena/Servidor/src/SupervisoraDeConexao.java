@@ -87,11 +87,11 @@ public class SupervisoraDeConexao extends Thread{
                 }
                 else if(comunicado instanceof ComunicadoDeNovoJogo)
                 {
-                    synchronized (this.usuarios) {
-                        for (Parceiro cliente : usuarios) {
-                            cliente.receba(comunicado);
+                        synchronized (this.usuarios) {
+                            for (Parceiro cliente : usuarios) {
+                                cliente.receba(comunicado);
+                            }
                         }
-                    }
                 }
             }
         }

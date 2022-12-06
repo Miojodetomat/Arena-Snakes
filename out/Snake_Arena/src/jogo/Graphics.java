@@ -71,9 +71,9 @@ implements ActionListener{
 			g2d.drawString("Pressione [ESPAÇO] para jogar de novo", Game.width/2 * Game.dimension - 70, (Game.height / 2 + 4) * Game.dimension - 20);
 			if(whoDied.equals("VOCE"))
 				g2d.drawString("Você morreu!", Game.width/2 * Game.dimension - 40, (Game.height / 2 + 6) * Game.dimension - 20);
-			else
 			if(whoDied.equals("OUTRO"))
-				g2d.drawString("Seu adversário morreu!", Game.width/2 * Game.dimension - 40, (Game.height / 2 + 6) * Game.dimension - 20);
+				g2d.drawString("Seu adversário morreu!", Game.width/2 * Game.dimension - 70, (Game.height / 2 + 6) * Game.dimension - 20);
+
 		}
 	}
 
